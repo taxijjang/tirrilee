@@ -1,0 +1,11 @@
+{% load static %}
+<p>나의 프로필</p>
+
+<img src="{% static 'base.JPG' %}" height = 200 alt = "">
+
+<p>{{ user.nickname}}</p>
+<p>{{user.email}}</p>
+<p>{{user.cellphone}}</p>
+<p>{{user.introduce}}</p>
+
+<p><a href = "{% url 'insert' user.id %}">수정</a></p>

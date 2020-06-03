@@ -1,0 +1,11 @@
+<p>home 화면</p>
+
+{%if request.session.user %}
+
+    <button onclick="location.href = 'users/logout/'">로그아웃</button>
+    <button onclick="location.href = 'users/profile/{{request.session.user}}'">나의프로필</button>
+    <button onclick="location.href = 'write'">글쓰기</button>
+{% else %}
+    <button onclick="location.href = 'users/login/'">로그인</button>
+    <button onclick="location.href = 'users/register/'">회원가입</button>
+{% endif %}

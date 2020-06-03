@@ -1,0 +1,12 @@
+{% load static %}
+<p>수정 페이지</p>
+
+<img src="{% static 'base.JPG' %}" height = 200 alt = "">
+
+<form method="POST" >
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit">제출</button>
+</form>
