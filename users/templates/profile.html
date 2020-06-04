@@ -1,15 +1,37 @@
+{% extends 'base.html' %}
+
 {% load static %}
-<p>나의 프로필</p>
+{% block context %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>프로필</title>
 
-{% if user.image.url != None%}
-    <img src="{{user.image.url}}" height = 200 width="200" alt = "">
-{% else %}
-    <img src="{% static 'base.JPG' %}" height = 200 width="200" alt = "">
-{% endif %}
+    <link href="{% static 'css/reset.css' %}" rel="stylesheet">
 
-<p>{{ user.nickname}}</p>
-<p>{{user.email}}</p>
-<p>{{user.cellphone}}</p>
-<p>{{user.introduce}}</p>
+    <link href="{% static 'css/form.css' %}" rel="stylesheet">
+</head>
+<body>
 
-<p><a href = "{% url 'insert' user.id %}">수정</a></p>
+<div id="header">
+    <h2 id="joinTitle"><i class="fas fa-taxi">프로필</i></h2>
+</div>
+
+<div id="content2">
+    <div class = profile_div>
+        {% if user.image.url != None%}
+            <img src="{{user.image.url}}" height = 400 width="400" alt = "">
+        {% else %}
+            <img src="{% static 'base.JPG' %}" height = 200 width="400" alt = "">
+        {% endif %}
+        <p><a href = "{% url 'insert' user.id %}">프로필 수정</a></p>
+
+        <p>이름 : {{ user.nickname}}</p><br>
+        <p>이메일 : {{user.email}}</p><br>
+        <p>전화번호 : {{user.cellphone}}</p><br>
+        <p>자기 소개 : {{user.introduce}}</p>
+        <div class = br></div>
+</div>
+</div>
+</body>
+{% endblock %}

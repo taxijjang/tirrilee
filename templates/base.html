@@ -1,3 +1,24 @@
-<html>
 
+<html>
+ {% block context %}
+ {% endblock %}
+<div id="contentBtn">
+        <ul>
+            <li><a href="{% url 'home' %}"> 홈 </a>
+            </a></li>
+            <li><a href="{% url 'search'%}"> 검색 </a>
+            </a></li>
+            {% if request.session.user %}
+            <li><a href="{% url 'profile' request.session.user %}"> 프로필</a>
+            </a></li>
+            <li><a href="{% url 'write' %}"> 새글</a>
+            </a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}"> 프로필</a>
+            </a></li>
+            <li><a href="{% url 'login' %}"> 새글</a>
+            </a></li>
+            {% endif %}
+        </ul>
+    </div>
 </html>

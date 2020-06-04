@@ -87,7 +87,7 @@ def insert(request, id):
     elif request.method == "POST":
         user = Users.objects.get(pk=id)
         form = UsersInsertForm(request.POST, request.FILES, instance= user)
-
+        print(request.POST.get('image'))
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/users/profile/' + str(user.id))

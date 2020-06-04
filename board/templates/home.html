@@ -1,18 +1,37 @@
-<p>home 화면</p>
+{% extends 'base.html' %}
 
-{%if request.session.user %}
+{% load static %}
+{% block context %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메인페이지</title>
 
-    <button onclick="location.href = 'users/logout/'">로그아웃</button>
-    <button onclick="location.href = 'users/profile/{{request.session.user}}'">나의프로필</button>
-    <button onclick="location.href = 'write'">글쓰기</button>
-{% else %}
-    <button onclick="location.href = 'users/login/'">로그인</button>
-    <button onclick="location.href = 'users/register/'">회원가입</button>
-{% endif %}
+    <link href="{% static 'css/reset.css' %}" rel="stylesheet">
 
-{% for post in posts %}
-    <p>{{post.product}}</p>
-    <p>{{post.price}}</p>
-    <p>{{post.writer}}</p>
-    <img src="{{post.product_image.url}}" height = 200 width="200" alt = "">
-{% endfor %}
+    <link href="{% static 'css/form.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="header">
+    <h2 id="joinTitle"><i class="fas fa-taxi">메인페이지</i></h2>
+</div>
+
+<div id="content">
+    <div id="br"></div>
+    <div id="listBox">
+        <ul>
+        {% for post in posts %}
+            <li class = 'list'>
+                <img class='post_image' src='{{post.product_image.url}}' width=200 height=200 alt = ""/>
+                <h1>상품명 : {{post.product}}</h1><br>
+                <h1>가격 : {{post.price}}원</h1><br>
+                <h1>판매자 : {{post.writer}}</h1>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+{% endblock %}

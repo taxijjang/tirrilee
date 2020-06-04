@@ -2,21 +2,18 @@
 
 {% load static %}
 {% block context %}
-
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>글 작성하기</title>
-
+    <title>검색하기</title>
 
     <link href="{% static 'css/reset.css' %}" rel="stylesheet">
-
     <link href="{% static 'css/form.css' %}" rel="stylesheet">
 </head>
 <body>
 
 <div id="header">
-    <h2 id="joinTitle"><i class="fas fa-taxi">글 작성하기</i></h2>
+    <h2 id="joinTitle"><i class="fas fa-taxi">검색하기</i></h2>
 </div>
 
 <div id="content2">
@@ -30,10 +27,24 @@
 
             {% endfor %}
             <div id="confirmBtnDiv">
-              <button type="submit" id="confirmBtn">등록완료</button>
+              <button type="submit" id="confirmBtn">검색</button>
             </div>
         </div>
     </form>
+    <div id="br"></div>
+    <div id="listBox">
+        <ul>
+        {% for post in post_list %}
+            <li class = 'list'>
+                <img class='post_image' src='{{post.product_image.url}}'width="200" height="200" alt = ""/>
+                <h1>상품명 : {{post.product}}</h1><br>
+                <h1>가격 : {{post.price}}원</h1><br>
+                <h1>판매자 : {{post.writer}}</h1>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
 </div>
 </body>
 {% endblock %}
