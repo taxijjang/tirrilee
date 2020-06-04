@@ -11,7 +11,7 @@ class Posts(models.Model):
         ('WI','겨울'),
     )
     classification = models.CharField(max_length=2, choices= CLASS_CHOICES, name = "classification")
-    product_image = models.ImageField(blank=True, upload_to='media/', default='media/base.jpg')
+    product_image = models.ImageField(blank=True, null= True,  upload_to='post/' )
     writer = models.ForeignKey('users.Users',name='writer', on_delete=models.CASCADE)
 
     def __str__(self):

@@ -1,9 +1,13 @@
 {% load static %}
 <p>수정 페이지</p>
 
-<img src="{% static 'base.JPG' %}" height = 200 alt = "">
+{% if user.image.url != None%}
+    <img src="{{user.image.url}}" height = 200 width="200" alt = "">
+{% else %}
+    <img src="{% static 'base.JPG' %}" height = 200 width="200" alt = "">
+{% endif %}
 
-<form method="POST" >
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         {{form.as_table}}

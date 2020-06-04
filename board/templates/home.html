@@ -9,3 +9,10 @@
     <button onclick="location.href = 'users/login/'">로그인</button>
     <button onclick="location.href = 'users/register/'">회원가입</button>
 {% endif %}
+
+{% for post in posts %}
+    <p>{{post.product}}</p>
+    <p>{{post.price}}</p>
+    <p>{{post.writer}}</p>
+    <img src="{{post.product_image.url}}" height = 200 width="200" alt = "">
+{% endfor %}

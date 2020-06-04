@@ -1,0 +1,83 @@
+/*
+페이지 전체를 활용하기 위하여 html 및 body요소의 width값과 height값을 100%로 셋팅
+*/
+html{
+    width:100%;
+    height:100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+#header {
+    text-align: center; /* 글자 가운데 정렬*/
+    margin-top:30px;
+    margin-bottom: 30px;
+    font-family: Arial ;
+
+}
+#joinTitle {
+    margin-bottom: 45px;
+    font-size: 45px;
+    font-weight: bold; /* 폰트를 두껍게*/
+    color: #409DF4;
+}
+#explanation {
+    font-weight: bold;
+    font-size:25px;
+}
+#content {
+    width: 600px;
+    height: 650px;
+    margin: auto;
+    padding: 10px;
+}
+.account {
+    margin: 10px 10px 10px 10px;
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+.input_info {
+    width: 560px;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    border-radius: 7px 7px 7px 7px;
+    border: 1px solid #0f0f0f;
+}
+.input_info:hover {
+    border:1.25px solid #409DF4;
+    transition: .2s;
+}
+#joinForm {
+    padding: 10px;
+}
+#confirmBtn{
+    border: 1px solid #0f0f0f;
+    background: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    width: 572px;
+    height: 60px;
+    border-radius: 10px 10px 10px 10px; /* border 모양을 살짝 둥굴게*/
+    margin: auto;
+    position: absolute;
+    cursor: pointer; /* 버튼스럽게 마우스 커서 모양 변경*/
+}
+#confirmBtnDiv {
+    width: 100%;
+    background: red;
+}
+#confirmBtn:hover {
+    background: #409DF4;
+    color: #ffffff;
+    transition: .5s;
+}
+input::-webkit-input-placeholder { font-size: 115%; text-indent: 20px;}
+input::-moz-placeholder { font-size: 115%; text-indent: 20px; }
+input:-ms-input-placeholder { font-size: 115%; text-indent: 20px; }
+input:-moz-placeholder { font-size: 115%; text-indent: 20px; }
+input::placeholder { font-size: 115%; text-indent: 20px; }
